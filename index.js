@@ -33,8 +33,16 @@ function startStopTimer(){
             var timerText = timerObj.textContent
             var timerArr = timerText.split(":") 
             var minutes = Number(timerArr[0])
-            var seconds = Number(timerArr[1]) 
-                seconds++ 
+            var seconds = Number(timerArr[1])
+            var miliseconds= Number(timerArr[2])
+            miliseconds++
+            if(miliseconds == 100){
+                seconds++
+                miliseconds = 0
+            }
+            if(miliseconds < 10){
+                miliseconds="0"+miliseconds
+            }
             if(seconds == 60){
                 minutes++
                 seconds = 0
@@ -45,17 +53,15 @@ function startStopTimer(){
             if(seconds < 10){
                 seconds = "0" + seconds
             }
-            timerObj.textContent = minutes + ":" + seconds ;
-        }, 1000)
+            timerObj.textContent = minutes + ":" + seconds + ":" + miliseconds;
+        }, 10)
     }
 }
 
 function resetTimer(){
     console.log("reset button clicked");
-    timerObj.textContent="00:00";
+    timerObj.textContent="00:00:00";
     startBtnObj.textContent ="Start";
     isTimerRunning = false
     clearInterval(interval)
 }
- 
- 
