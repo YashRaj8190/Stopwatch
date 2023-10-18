@@ -10,9 +10,11 @@ h1{
 }
 
 #clock{
+    border: solid 4px black;
+    padding: 0.4cm 2cm;
     text-align: center;
 }
 .btn{
     padding: 10px 20px;
-    background: aquamarine;
+    background: rgb(255, 233, 191);
 }
